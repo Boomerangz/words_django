@@ -28,7 +28,7 @@ def get_good_words(word, length):
     good_words = []
     for word_mean in words:
         word = word_mean["word"]
-        if len(word) <= min_word_length*2:
+        if len(word) < min_word_length*2:
             continue
         word_dict = get_char_dict(word)
         good = True

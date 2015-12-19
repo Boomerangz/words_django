@@ -19,8 +19,9 @@ class WordForm(TemplateView):
             word = request.POST["word"]
             word = word.lower()
             word = word.encode('utf-8')
-            words_list = get_good_words(word, 3)
+            length = int(request.POST["length"]) if "length" in request.POST and len(request.POST["length"])>0 else 0
+            words_list = get_good_words(word, length)
             print len(words_list)
-            return self.render_to_response({"words_list":words_list})
+            return self.render_to_response({"words_list":words_list, "word":word, "length":length})
         else:
             return self.render_to_response({})

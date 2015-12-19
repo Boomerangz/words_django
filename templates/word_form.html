@@ -3,6 +3,13 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Слова</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1>
@@ -10,8 +17,10 @@
     </h1>
     <form action="" method="POST">
         {% csrf_token %}
-        <h3>Слово</h3>
-        <input type="text" name="word">
+        <label>Слово</label><br>
+        <input type="text" name="word" {% if word %}value="{{ word }}"{% endif %}><br>
+        <label>Длина</label><br>
+        <input type="number" name="length" {% if length %}value="{{ length }}"{% endif %}><br>
         <button type="submit" >Проверить</button>
     </form>
     {% if words_list %}
