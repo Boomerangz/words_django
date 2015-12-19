@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
+<div style="padding: 10px;">
     <h1>
         Введите слово
     </h1>
@@ -27,10 +28,11 @@
         <table border="1">
         {% for word in words_list %}
             <tr>
-                <th>{{ word.word }}</th><th>{{ word.meaning }}</th>
+                <th colspan=2>{{ word.word }}</th><td>{{ word.meaning }}</td>
             </tr>
         {% endfor %}
         </table>
     {% endif %}
+</div>
 </body>
 </html>
